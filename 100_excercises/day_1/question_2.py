@@ -29,16 +29,43 @@
 
 # Importing 'try' and 'except' error handling
 
-while True:
-    try:
-        num = int(input("Enter a number: "))
-        break
-    except ValueError as err:
-        print(err)
+def print_factorial():
+    attempts = 3
+    while attempts > 0:
+        try:
+            n = int(input("Enter a number: "))
 
-    org = num
-    fact = 1
-    while num:
-        fact = num * fact
-        num = num - 1
-    print(f'The factorial of {num} is {fact}')
+            # Check if input is a number greater than one
+            if n <= 1:
+                raise ValueError
+
+            # Function to calculate factorial
+            def factorial(n):
+                if n == 1:
+                    return 1
+                else:
+                    return n * factorial(n-1)
+
+            # Calculate and print factorial
+            result = factorial(n)
+            print(f"The factorial of {n} is {result}")
+
+        except ValueError as err:
+            attempts -= 1
+            print(f"Error: {err}. Please enter a valid integer.")
+            if attempts == 0:
+                print("You have been locked out.")
+
+print_factorial()
+
+
+
+
+
+
+
+# Using a lambda function
+
+# factorial = lambda n: 1 if n == 1 else n * factorial(n - 1)
+# n = int(input("Enter a number: "))
+# print(f"The factorial of {n} is {factorial(n)}")
