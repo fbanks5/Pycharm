@@ -7,12 +7,12 @@ class Cat:
 
 
 cat1 = Cat('John', 100)
-cat2 = Cat('Tom', 50)
-cat3 = Cat('Butch', 5)
+cat2 = Cat('Tom', 200)
+cat3 = Cat('Butch', 5000)
 
 
 def oldest_cat(*args):
     return max(args)
 
 
-print(f'The oldest cat is {oldest_cat(cat1.age, cat1.age, cat1.age)} years old')
+print(f'The oldest cat is {oldest_cat(cat1.age, cat2.age, cat3.age)} years old')
